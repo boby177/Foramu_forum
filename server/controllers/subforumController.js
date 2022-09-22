@@ -17,6 +17,37 @@ const createSubforum = async (req, res) => {
   }
 };
 
+// List subforum controller
+const getAllSubforum = async (req, res) => {
+  let subForums = await Subforum.findAll({});
+  res.status(200).send(subForums);
+};
+
+// Get single subforum controller
+const getOneSubforum = async (req, res) => {
+  let id_subforum = req.params.id;
+  let subForum = await Subforum.findOne({ where: { id_subforum: id_subforum } });
+  res.status(200).send(subForum);
+};
+
+// Update subforum controller
+const updateSubforum = async (req, res) => {
+  let id_subforum = req.params.id;
+  await Subforum.update(req.body, { where: { id_subforum: id_subforum } });
+  res.status(200).send("Subforum updated successfully");
+};
+
+// Delete subforum controller
+const deleteSubforum = async (req, res) => {
+  let id_subforum = req.params.id;
+  await Subforum.destroy({ where: { id_subforum: id_subforum } });
+  res.status(200).send("Subforum deleted successfully");
+};
+
 module.exports = {
     createSubforum,
+    getAllSubforum,
+    getOneSubforum,
+    updateSubforum,
+    deleteSubforum
 };

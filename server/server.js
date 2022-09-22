@@ -14,11 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, "image")));
 
 // Create table from models
-async function main() {
-  await sequelize.sync({ alter: true });
-}
+// async function main() {
+//   await sequelize.sync({ alter: true });
+// }
 
-main();
+// main();
 
 // // Initializes Routes
 const userRouter = require("./routes/userRouter");

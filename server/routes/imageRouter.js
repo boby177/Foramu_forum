@@ -2,7 +2,13 @@
 const router = require("express").Router();
 const imageController = require("../controllers/imageController");
 
-// Forum API
-router.post("/imgLink", imageController.imageLink);
+// Upload image API
+router.post("/imgUpload", imageController.uploadImage);
+
+// Upload image user API
+router.put("/:user", imageController.uploadImageUser);
+
+// Upload image user API
+router.put("/:id", imageController.uploadImageDiscussion);
 
 module.exports = router;

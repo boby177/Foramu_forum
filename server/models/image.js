@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class img_forum extends Model {
+  class image extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,21 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  img_forum.init({
+  image.init({
     id_img: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,
     },
-    img_link: {
+    img_location: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   }, {
     sequelize,
-    tableName: 'img_forums',
-    modelName: 'Img_Forum',
+    tableName: 'images',
+    modelName: 'Image',
   });
-  return img_forum;
+  return image;
 };
